@@ -38,3 +38,37 @@ Build instructions
 ------------------
 
 To build the html version of the tutorials, install sphinx and run doc/Makefile
+
+===========================================================================================
+@author: lixihua9@126.com
+@date:   2015/01/01
+@brief:  attensions
+
+1. first run "sh -x download.sh" in data folder in order to download all needed datas.
+
+2. there may be an error with:
+"from midi.utils import midiread, midiwrite"
+just install midi with:
+pip search midi
+pip install python-midi
+
+3. run "python test.py" in code folder and see test results.
+
+4. rnnslu failed with no permission to:
+http://www-etud.iro.umontreal.ca/~mesnilgr/atis/
+http://www-etud.iro.umontreal.ca/~mesnilgr/atis/conlleval.pl
+bug fixed:
+https://argcv.com/articles/2104.c
+http://www.cnts.ua.ac.be/conll2000/chunking/output.html
+to get conlleval.txt from web 1 and do "mv conlleval.txt conlleval.pl"
+cd /code/rnnslu                 and do "perl conlleval.pl < current.test.txt"
+new conlleval.pl may given new index of result:
+to change in rnnslu.py(line: 134)
+
+5. lstm failed with pkl file
+imdb.pkl fill could be download from:
+http://www.iro.umontreal.ca/~lisa/deep/data/imdb.pkl
+or add given file path at imdb.py(line: 108) with:
+path = "/home/xiaoju/user/lixihua/codingskills/theano/DeepLearningTutorials/data/imdb.pkl.gz"
+
+===========================================================================================

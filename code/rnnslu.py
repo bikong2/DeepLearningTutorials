@@ -112,7 +112,8 @@ def download(origin, destination):
 
 
 def get_perf(filename, folder):
-    ''' run conlleval.pl perl script to obtain
+    ''' 
+    run conlleval.pl perl script to obtain
     precision/recall and F1 score '''
     _conlleval = os.path.join(folder, 'conlleval.pl')
     if not os.path.isfile(_conlleval):
@@ -120,8 +121,7 @@ def get_perf(filename, folder):
         download(url, _conlleval)
         os.chmod(_conlleval, stat.S_IRWXU)  # give the execute permissions
 
-    proc = subprocess.Popen(["perl",
-                            _conlleval],
+    proc = subprocess.Popen(["perl", _conlleval],
                             stdin=subprocess.PIPE,
                             stdout=subprocess.PIPE)
 
@@ -131,9 +131,10 @@ def get_perf(filename, folder):
             out = line.split()
             break
 
-    precision = float(out[6][:-2])
-    recall = float(out[8][:-2])
-    f1score = float(out[10])
+    # when given a new conlleval.pl, index changed
+    precision = float(out[3][:-2])
+    recall = float(out[5][:-2])
+    f1score = float(out[7])
 
     return {'p': precision, 'r': recall, 'f1': f1score}
 

@@ -1,5 +1,8 @@
-import sys
+# @author: lixihua9@126.com
+# @date:   2015/01/01
+# @brief:  start file for theano testing
 
+import sys
 import numpy
 
 import convolutional_mlp
@@ -74,8 +77,9 @@ def speed():
     algo = ['logistic_sgd', 'logistic_cg', 'mlp', 'convolutional_mlp',
             'dA', 'SdA', 'DBN', 'rbm', 'rnnrbm', 'rnnslu', 'lstm']
     to_exec = [True] * len(algo)
-#    to_exec = [False] * len(algo)
-#    to_exec[-1] = True
+    #to_exec = [False]*10 + [True]*1 # index choosing
+    #to_exec = [False] * len(algo)
+    #to_exec[-1] = True
     do_float64 = True
     do_float32 = True
     do_gpu = True
@@ -282,3 +286,6 @@ def speed():
         print >> sys.stderr, 'speed_failure_gpu=' + str(err)
 
         assert not numpy.isnan(gpu_times).any()
+
+if __name__ == '__main__':
+    speed()
