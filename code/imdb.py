@@ -105,7 +105,7 @@ def load_data(path="imdb.pkl", n_words=100000, valid_portion=0.1, maxlen=None,
         path, "imdb.pkl",
         "http://www.iro.umontreal.ca/~lisa/deep/data/imdb.pkl")
 
-    #path = "/home/xiaoju/user/lixihua/codingskills/theano/DeepLearningTutorials/data/imdb.pkl.gz"
+    #path = "/home/xiaoju/user/lixihua/srccode/DeepLearningTutorials/data/imdb.pkl.gz"
     if path.endswith(".gz"):
         f = gzip.open(path, 'rb')
     else:
